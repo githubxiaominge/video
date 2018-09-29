@@ -1,0 +1,10 @@
+<view class="container">
+    <video src="{{videoSource}}" controls></video>
+    <view class="bottom-content">
+        <view class="title">
+            <image src="../images/video-play.png"></image>
+            <text>剧情简介</text>
+        </view>
+        <view class="message">假装这是剧情简介假装这是剧情简介假装这是剧情简介假装这是剧情简介假装这是剧情简介假装这是剧情简介假装这是剧情简介假装这是剧情简介假装这是剧情简介假装这是剧情简介假装这是剧情简介假装这是剧情简介假装这是剧情简介</view>
+    </view>
+</view>

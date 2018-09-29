@@ -1,0 +1,78 @@
+<!--play.wxml-->
+<view class="container">
+    <view class="search">
+        <view class="search-content">
+            <input/>
+            <button>
+                <icon type="search" color="white" size="23"></icon>
+            </button>
+        </view>
+    </view>
+
+    <swiper autoplay="{{true}}" class="home-slider" display-multiple-items="{{1}}" indicator-dots="{{true}}"
+            indicator-color="#409eff" indicator-active-color="white">
+        <block wx:for="{{sliders}}">
+            <swiper-item wx:key="{{item.vid}}">
+                <image src="{{item.logo}}" class="slide-image" bindtap="goToplay" data-tvid="{{item.tvid}}"
+                       data-vid="{{item.vid}}"/>
+            </swiper-item>
+        </block>
+    </swiper>
+
+    <view class="content-item">
+        <view class="title">
+            <image src="../images/news.png"></image>
+            <text>资讯</text>
+        </view>
+        <view class="content">
+            <block wx:for="{{news}}">
+                <view class="item" bindtap="goToplay" data-tvid="{{item.tvid}}" data-vid="{{item.vid}}"  wx:key="{{item.vid}}">
+                    <image mode="widthFix" src="{{item.logo}}"></image>
+                    <view class="item-name">{{item.name}}</view>
+                </view>
+            </block>
+        </view>
+        <view class="getMore">
+            <text>查看更多</text>
+            <text class="right">></text>
+        </view>
+    </view>
+
+    <view class="content-item">
+        <view class="title">
+            <image src="../images/player.png"></image>
+            <text>电影</text>
+        </view>
+        <view class="content">
+            <block wx:for="{{video}}">
+                <view class="item" bindtap="goToplay" data-tvid="{{item.tvid}}" data-vid="{{item.vid}}"  wx:key="{{item.vid}}">
+                    <image mode="widthFix" src="{{item.logo}}"></image>
+                    <view class="item-name">{{item.name}}</view>
+                </view>
+            </block>
+        </view>
+        <view class="getMore">
+            <text>查看更多</text>
+            <text class="right">></text>
+        </view>
+    </view>
+
+    <view class="content-item">
+        <view class="title">
+            <image src="../images/tv.png"></image>
+            <text>电视剧</text>
+        </view>
+        <view class="content">
+            <block wx:for="{{tv}}">
+                <view class="item" bindtap="goToplay" data-tvid="{{item.tvid}}" data-vid="{{item.vid}}" wx:key="{{item.vid}}">
+                    <image mode="widthFix" src="{{item.logo}}"></image>
+                    <view class="item-name">{{item.name}}</view>
+                </view>
+            </block>
+        </view>
+        <view class="getMore">
+            <text>查看更多</text>
+            <text class="right">></text>
+        </view>
+    </view>
+</view>
