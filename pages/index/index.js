@@ -46,7 +46,7 @@ Page({
         //获取电影
         app.request('movies', {
             pgn: 1,
-            pgsize: 5
+            pgsize: 6
         }).then((result) => {
             this.setData({
                 video: result.data
@@ -56,7 +56,7 @@ Page({
         //获取新闻资讯
         app.request('news', {
             pgn: 1,
-            pgsize: 5
+            pgsize: 6
         }).then((result) => {
             this.setData({
                 news: result.data
@@ -66,7 +66,7 @@ Page({
         //获取连续剧
         app.request('tvs', {
             pgn: 1,
-            pgsize: 5
+            pgsize: 6
         }).then((result) => {
             this.setData({
                 tv: result.data
@@ -76,10 +76,18 @@ Page({
 
     },
     goToplay(e) {
-        let {tvid, vid} = e.currentTarget.dataset;
-        wx.navigateTo({
-            url: "../play/play?tvid=" + tvid + '&vid=' + vid
-        });
+        let {tvid, vid, video} = e.currentTarget.dataset;
+        if (video) {
+            //资讯兼容
+            wx.navigateTo({
+                url: "../play/play?video=" + video
+            });
+        }
+        else {
+            wx.navigateTo({
+                url: "../play/play?tvid=" + tvid + '&vid=' + vid
+            });
+        }
     },
     //跳转到剧集列表
     goToTvList(e) {

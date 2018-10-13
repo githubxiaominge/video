@@ -12,18 +12,27 @@ Page({
 
     },
     onLoad(query){
-        let encrypt=this.encrypt(query.tvid,query.vid);
-        app.request('', {
-            auth: 'CODE00ETYGDUTFUWTGUTFUGLGYTQGGD',
-            tvid: query.tvid,
-            vid: query.vid,
-            vf: encrypt.md5,
-            timestamp: encrypt.timeStamp,
-        }).then((result)=>{
+        if(query.video){
+            //资讯播放
             this.setData({
-                videoSource:result.data
+                videoSource:query.video
             })
-        })
+        }
+        else {
+            //正常播放
+            let encrypt = this.encrypt(query.tvid, query.vid);
+            app.request('', {
+                auth: 'CODE00ETYGDUTFUWTGUTFUGLGYTQGGD',
+                tvid: query.tvid,
+                vid: query.vid,
+                vf: encrypt.md5,
+                timestamp: encrypt.timeStamp,
+            }).then((result) => {
+                this.setData({
+                    videoSource: result.data
+                })
+            })
+        }
 
     }
 });
