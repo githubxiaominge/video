@@ -1,0 +1,20 @@
+<view class="container">
+    <view class="content-item">
+        <view class="title">
+            <image src="../images/tv.png"></image>
+            <text>剧集列表</text>
+        </view>
+        <view class="content">
+            <block wx:for="{{tvList}}">
+                <view class="item" bindtap="goToplay" data-tvid="{{item.tvid}}" data-vid="{{item.vid}}"
+                      wx:key="{{item.vid}}">
+                    <image mode="widthFix" src="{{item.vpic}}"></image>
+                    <view class="item-content">
+                        <view class="item-title">{{item.vn}}</view>
+                        <view class="item-name">{{item.vt}}</view>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>

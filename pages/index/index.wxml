@@ -26,7 +26,7 @@
         </view>
         <view class="content">
             <block wx:for="{{news}}">
-                <view class="item" bindtap="goToplay" data-tvid="{{item.tvid}}" data-vid="{{item.vid}}"  wx:key="{{item.vid}}">
+                <view class="item" bindtap="goToTvList" data-tvid="{{item.tvid}}" data-vid="{{item.vid}}"  wx:key="{{item.vid}}">
                     <image mode="widthFix" src="{{item.logo}}"></image>
                     <view class="item-name">{{item.name}}</view>
                 </view>
@@ -52,7 +52,7 @@
             </block>
         </view>
         <view class="getMore">
-            <text>查看更多</text>
+           <navigator url="../allVideos/allVideos?type=movies"> <text>查看更多</text></navigator>
             <text class="right">></text>
         </view>
     </view>
@@ -64,14 +64,14 @@
         </view>
         <view class="content">
             <block wx:for="{{tv}}">
-                <view class="item" bindtap="goToplay" data-tvid="{{item.tvid}}" data-vid="{{item.vid}}" wx:key="{{item.vid}}">
+                <view class="item" bindtap="goToTvList" data-name="{{item.name}}" wx:key="{{item.vid}}">
                     <image mode="widthFix" src="{{item.logo}}"></image>
                     <view class="item-name">{{item.name}}</view>
                 </view>
             </block>
         </view>
         <view class="getMore">
-            <text>查看更多</text>
+            <navigator url="../allVideos/allVideos?type=tvs"> <text>查看更多</text></navigator>
             <text class="right">></text>
         </view>
     </view>

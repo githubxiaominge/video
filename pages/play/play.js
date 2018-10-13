@@ -13,32 +13,17 @@ Page({
     },
     onLoad(query){
         let encrypt=this.encrypt(query.tvid,query.vid);
-        wx.request({
-            url:'https://mk1024.cn/',
-            data:{
-                auth:'CODE00ETYGDUTFUWTGUTFUGLGYTQGGD',
-                tvid:query.tvid,
-                vid:query.vid,
-                vf:encrypt.md5,
-                timestamp:encrypt.timeStamp,
-            },
-            success:(result)=>{
-                console.log(result);
-                if(result.data.code==0){
-                    this.setData({
-                        videoSource:result.data.data
-                    })
-                }
-                else{
-                    wx.showToast({
-                      title: result.data.msg
-
-                    })
-                }
-            },
-            fail:()=>{
-
-            }
+        app.request('', {
+            auth: 'CODE00ETYGDUTFUWTGUTFUGLGYTQGGD',
+            tvid: query.tvid,
+            vid: query.vid,
+            vf: encrypt.md5,
+            timestamp: encrypt.timeStamp,
+        }).then((result)=>{
+            this.setData({
+                videoSource:result.data
+            })
         })
+
     }
 });

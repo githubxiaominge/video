@@ -1,4 +1,5 @@
 //app.js
+import apiHelper from 'source/apiHelper';
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -35,5 +36,8 @@ App({
   },
   globalData: {
     userInfo: null
+  },
+  request(url,data){
+    return apiHelper.request(url,data);
   }
 })

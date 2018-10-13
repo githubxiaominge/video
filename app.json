@@ -1,13 +1,15 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
+    "pages/tvList/tvList",
     "pages/play/play",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/allVideos/allVideos"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#409eff",
     "navigationBarTitleText": "瞎几把看看",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle": "white"
   }
 }
